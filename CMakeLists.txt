@@ -19,12 +19,8 @@ project(irods_project_template_cpp_client
   VERSION "${IRODS_CLIENT_VERSION}"
   LANGUAGES CXX)
 
-set(CMAKE_SKIP_BUILD_RPATH OFF)
-set(CMAKE_SKIP_INSTALL_RPATH OFF)
-set(CMAKE_SKIP_RPATH OFF)
-set(CMAKE_INSTALL_RPATH_USE_LINK_PATH ON)
-set(CMAKE_BUILD_WITH_INSTALL_RPATH OFF)
-set(CMAKE_BUILD_RPATH_USE_ORIGIN ON)
+# Include this module to inherit iRODS's defaults for RPATH/RUNPATH handling
+include(IrodsRunpathDefaults)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
