@@ -22,8 +22,6 @@ project(irods_project_template_cpp_client
 # Include this module to inherit iRODS's defaults for RPATH/RUNPATH handling
 include(IrodsRunpathDefaults)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
-
 include("${IRODS_TARGETS_PATH}")
 include(GNUInstallDirs)
 include(UseLibCXX)
