@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.12.0 FATAL_ERROR)
 
 find_package(IRODS REQUIRED CONFIG)
 
+set(IRODS_CLIENT_REVISION "0")
+set(IRODS_CLIENT_VERSION "${IRODS_VERSION}.${IRODS_CLIENT_REVISION}")
+
 include(RequireOutOfSourceBuild)
 include(IrodsCXXCompiler)
 
@@ -10,7 +13,9 @@ set(CMAKE_CXX_STANDARD ${IRODS_CXX_STANDARD})
 set(CMAKE_EXE_LINKER_FLAGS_INIT "-rdynamic -Wl,--export-dynamic -Wl,--enable-new-dtags -Wl,--as-needed -Wl,-z,defs")
 set(CMAKE_EXE_LINKER_FLAGS_RELEASE_INIT "-Wl,--gc-sections -Wl,-z,combreloc")
 
-project(irods_project_template_cpp_client VERSION "${IRODS_VERSION}" LANGUAGES CXX)
+project(irods_project_template_cpp_client
+  VERSION "${IRODS_CLIENT_VERSION}"
+  LANGUAGES CXX)
 
 set(CMAKE_SKIP_BUILD_RPATH OFF)
 set(CMAKE_SKIP_INSTALL_RPATH OFF)
