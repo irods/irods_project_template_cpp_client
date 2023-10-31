@@ -24,7 +24,7 @@ include(IrodsRunpathDefaults)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
-include(${IRODS_TARGETS_PATH})
+include("${IRODS_TARGETS_PATH}")
 include(GNUInstallDirs)
 include(UseLibCXX)
 
@@ -52,7 +52,7 @@ endif()
 set(EXECUTABLE_NAME "irods_cpp_client_example")
 
 add_executable(${EXECUTABLE_NAME}
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp)
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp")
 
 target_compile_definitions(
   ${EXECUTABLE_NAME}
@@ -64,11 +64,11 @@ target_include_directories(
   ${EXECUTABLE_NAME}
   PRIVATE
   ${IRODS_INCLUDE_DIRS}
-  ${IRODS_EXTERNALS_FULLPATH_BOOST}/include
-  ${IRODS_EXTERNALS_FULLPATH_FMT}/include)
+  "${IRODS_EXTERNALS_FULLPATH_BOOST}/include"
+  "${IRODS_EXTERNALS_FULLPATH_FMT}/include")
 
 target_link_libraries(
   ${EXECUTABLE_NAME}
   PRIVATE
   irods_client
-  ${IRODS_EXTERNALS_FULLPATH_FMT}/lib/libfmt.so)
+  "${IRODS_EXTERNALS_FULLPATH_FMT}/lib/libfmt.so")
