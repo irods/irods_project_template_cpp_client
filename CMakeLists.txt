@@ -41,7 +41,13 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   add_compile_options($<$<COMPILE_LANGUAGE:CXX>:-fpermissive>)
 endif()
 
-add_compile_options(-Wall -Wextra -Werror -Wconversion -Wshadow -Wpedantic)
+add_compile_options(-Wall -Wextra -Wconversion -Wshadow -Wpedantic)
+
+set(IRODS_BUILD_WITH_WERROR OFF CACHE BOOL "Choose whether to compile with -Werror.")
+
+if (IRODS_BUILD_WITH_WERROR)
+  add_compile_options(-Werror)
+endif()
 
 set(EXECUTABLE_NAME "irods_cpp_client_example")
 
