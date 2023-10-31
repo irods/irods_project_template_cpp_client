@@ -51,7 +51,8 @@ endif()
 
 set(EXECUTABLE_NAME "irods_cpp_client_example")
 
-add_executable(${EXECUTABLE_NAME} ${CMAKE_SOURCE_DIR}/src/main.cpp)
+add_executable(${EXECUTABLE_NAME}
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp)
 
 target_compile_definitions(
   ${EXECUTABLE_NAME}
