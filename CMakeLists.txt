@@ -47,26 +47,26 @@ if (IRODS_BUILD_WITH_WERROR)
   add_compile_options(-Werror)
 endif()
 
-set(EXECUTABLE_NAME "irods_cpp_client_example")
+set(IRODS_CLIENT_NAME "irods_cpp_client_example")
 
-add_executable(${EXECUTABLE_NAME}
+add_executable(${IRODS_CLIENT_NAME}
   "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp")
 
 target_compile_definitions(
-  ${EXECUTABLE_NAME}
+  ${IRODS_CLIENT_NAME}
   PRIVATE
   ${IRODS_COMPILE_DEFINITIONS}
   ${IRODS_COMPILE_DEFINITIONS_PRIVATE})
 
 target_include_directories(
-  ${EXECUTABLE_NAME}
+  ${IRODS_CLIENT_NAME}
   PRIVATE
   ${IRODS_INCLUDE_DIRS}
   "${IRODS_EXTERNALS_FULLPATH_BOOST}/include"
   "${IRODS_EXTERNALS_FULLPATH_FMT}/include")
 
 target_link_libraries(
-  ${EXECUTABLE_NAME}
+  ${IRODS_CLIENT_NAME}
   PRIVATE
   irods_client
   "${IRODS_EXTERNALS_FULLPATH_FMT}/lib/libfmt.so")
